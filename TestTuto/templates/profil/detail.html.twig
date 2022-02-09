@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-8 offset-sm-2">
+            {% for num,truc in info%}
+            <p>
+                {{num}}:{{truc}}
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

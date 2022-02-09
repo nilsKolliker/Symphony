@@ -1,0 +1,18 @@
+body{
+    background-color: #222222;
+}
+h1, p, div{
+    color: #C9C9C9;
+}
+a{
+    color: greenyellow;
+}
+
+main, div{
+    display: flex;
+    flex: 1;
+}
+
+main{
+    flex-direction: column;
+}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div>
+        <div>id</div>
+        <div>nom</div>
+        <div>fournisseur</div>
+        <div>id categorie</div>
+        <div>quantite par unite</div>
+        <div>prix unitaire</div>
+        <div>unites en stocks</div>
+        <div>unité en commande</div>
+        <div>niveau d'alerte</div>
+        <div>discontinuité</div>
+    </div>
+    {% for item in obj %}
+        <div>
+            <div>
+                {{item.Id}}
+            </div>
+            <div>
+                {{item.Name}}
+            </div>
+            <div>
+                {{item.Suppliers.Name}}
+            </div>
+            <div>
+                {{item.CategoryId}}
+            </div>
+            <div>
+                {{item.QuantityPerUnit}}
+            </div>
+            <div>
+                {{item.UnitPrice}}
+            </div>
+            <div>
+                {{item.UnitsInStock}}
+            </div>
+            <div>
+                {{item.UnitsOnOrder}}
+            </div>
+            <div>
+                {{item.ReorderLevel}}
+            </div>
+            <div>
+                {{item.Discontinued}}
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
