@@ -1,6 +1,9 @@
 <?php
 namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="suppliers")
@@ -28,4 +31,28 @@ class Suppliers{
         $this->name = $name;
         return $this;
     }
+
+    /**
+     * @ORM\OneToMany(targetEntity="Products", mappedBy="suppliers", orphanRemoval=true, fetch="EAGER")
+     */
+    private $products;
+    public function __construct() {
+        $this->products = new ArrayCollection();
+    }
+
+    public function getProducts(): Collection 
+    { 
+        return $this->products; 
+    } 
+
+    public function addProducts(Products $products): self
+    { 
+        if (!$this->products->contains($products))
+        { 
+             $this->products[] = $products; 
+             $products->setSuppliers($this); 
+        }
+        return $this;
+    }
+
 }

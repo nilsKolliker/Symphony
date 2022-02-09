@@ -165,7 +165,7 @@ class Products{
 
     /**
      * @var \Suppliers
-     * @ORM\ManyToOne(targetEntity="Suppliers", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="Suppliers", inversedBy="products")
      * @ORM\JoinColumn(name="SupplierId", referencedColumnName="SupplierId")
      */
     private $suppliers;
